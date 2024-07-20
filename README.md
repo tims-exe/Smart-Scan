@@ -1,6 +1,6 @@
-# smart_scan
+# Smart Scan
 
-A new Flutter project.
+A flutter app that uses Machine Learning to Scan an image taken from your phoen and recognizes the text in the image
 
 ## Getting Started
 
@@ -19,3 +19,4 @@ samples, guidance on mobile development, and a full API reference.
 - Camera
 - Google ML Kit
 - Permission Handler
+
