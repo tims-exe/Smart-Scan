@@ -1,70 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:smart_scan/scan.dart';
-/* import 'package:text_recognition_flutter/result_screen.dart'; */
+import 'dart:io';
 
-void main() {
-  runApp(const App());
-}
+import 'package:camera/camera.dart';
+import 'package:flutter/material.dart';
+import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:smart_scan/result_screen.dart';
 
-class App extends StatelessWidget {
-  const App({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Smart Scan',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MainScreen(),
-    );
-  }
-}
-
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class SmartScan extends StatefulWidget {
+  const SmartScan({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<SmartScan> createState() => _SmartScanState();
 }
 
-class _MainScreenState extends State<MainScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Smart Scan'),
-      ),
-      body: Center(
-        child: TextButton(
-          style: const ButtonStyle(
-            backgroundColor: WidgetStatePropertyAll(Color.fromRGBO(0, 102, 51, 1)),
-            foregroundColor: WidgetStatePropertyAll(Colors.white) 
-          ),
-          onPressed: () {
-            Navigator.push(
-              context, 
-              MaterialPageRoute(builder: (context) => const SmartScan())
-            );
-          },
-          child: const Text('Open Camera'),
-        )
-      ),
-    );
-  }
-}
-
-
-/* class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
-
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
+class _SmartScanState extends State<SmartScan> with WidgetsBindingObserver {
   bool _isPermissionGranted = false;
 
   late final Future<void> _future;
@@ -157,7 +107,6 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
       }
     );
   }
-
   Future<void> _requestCameraPermission() async {
     final status = await Permission.camera.request();
     _isPermissionGranted = status == PermissionStatus.granted;
@@ -232,11 +181,3 @@ class _MainScreenState extends State<MainScreen> with WidgetsBindingObserver {
     }
   }
 }
- */
-
-
-
-
-/*
-return 
- */
